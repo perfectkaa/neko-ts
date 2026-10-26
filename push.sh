@@ -1,18 +1,11 @@
 #!/usr/bin/env bash
-# This script pushes the local repository to GitHub using the correct credentials.
-# Ensure you have a personal access token (PAT) with repo scope.
-# Replace <YOUR_PAT> with your token or configure a credential helper.
+# This script pushes the local repository to GitHub using GITHUB_TOKEN authentication.
 
-# Set remote with token authentication (avoid embedding token in URL for security).
-# You can also use a credential manager, e.g., git credential-store.
+# Set remote with token authentication
+git remote set-url origin https://${GITHUB_TOKEN}@github.com/perfectkaa/neko-ts.git
 
-# Example using token in URL (not recommended for public repos):
-# git remote set-url origin https://<YOUR_PAT>@github.com/perfectkaa/neko-ts.git
+# Push to GitHub
+git push -u origin main
 
-# Then push:
-# git push -u origin main
-
-# Or, if you have a credential helper configured:
-# git push -u origin main
-
-echo "Push script ready. Configure your credentials and run ./push.sh"
+# Reset remote URL to remove token from history
+git remote set-url origin https://github.com/perfectkaa/neko-ts.git
