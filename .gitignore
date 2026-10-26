@@ -1,0 +1,12 @@
+# Ignore all dotfiles and dotdirectories
+.*
+!.gitignore
+!.github/
+!.github/**
+
+# Ignore node_modules
+/node_modules
+
+# Ignore specific files
+/PLAN.md
+/PROGRESS.md
